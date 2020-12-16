@@ -81,7 +81,9 @@ class _FancyTimerState extends State<FancyTimer>
       });
 
       if (leftDuration.inSeconds == 0) {
-        widget?.onTimerEnd();
+        if (widget.onTimerEnd != null) {
+          widget.onTimerEnd();
+        }
         _controller?.dispose();
       }
     });
@@ -132,7 +134,7 @@ class _FancyTimerState extends State<FancyTimer>
   }
 
   String getFirstDigit(int number) =>
-      (number == null || number < 10) ? '0' : number.toString();
+      (number == null || number < 10) ? '0' : number.toString().characters.last;
 
   String getLastDigit(int number) => number.toString().characters.last;
 }
