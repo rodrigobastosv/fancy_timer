@@ -1,3 +1,7 @@
+# 1.0.1+2
+
+- Adding documentation to the methods
+
 # 1.0.1+1
 
 - Not calling dispose of the AnimationController if it already been disposed

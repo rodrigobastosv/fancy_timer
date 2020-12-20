@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'digits_widget.dart';
 import 'time_separator.dart';
 
+// Fancy widget that gives you an out of the box timer with configurable options
 class FancyTimer extends StatefulWidget {
   FancyTimer({
     Key key,
@@ -15,12 +16,26 @@ class FancyTimer extends StatefulWidget {
     this.onTimerEnd,
   }) : super(key: key);
 
+  /// Duration of the timer
+  /// Currently this has a limitation of 3 days (in hours)
   final Duration duration;
+
+  /// Widget that will separate hours, minutes and seconds
   final Widget timeSeparatorWidget;
+
+  /// Decoration of the container of the widget
   final BoxDecoration digitContainerDecoration;
+
+  /// Height of the container of the widget
   final double digitContainerHeight;
+
+  /// Width of the container of the widget
   final double digitContainerWidth;
+
+  /// Style of the text of the widget
   final TextStyle digitTextStyle;
+
+  // Callback that will be executed when the timer ends
   final VoidCallback onTimerEnd;
 
   @override

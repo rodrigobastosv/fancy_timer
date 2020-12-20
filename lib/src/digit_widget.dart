@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+/// Widget that represents a single digit on the timer
 class DigitWidget extends StatelessWidget {
   const DigitWidget({
     Key key,

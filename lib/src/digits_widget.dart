@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'digit_widget.dart';
 
+/// Widget that represents the digits that will be shown
 class DigitsWidget extends StatelessWidget {
   const DigitsWidget({
     Key key,
