@@ -92,7 +92,7 @@ class _FancyTimerState extends State<FancyTimer>
 
   @override
   void dispose() {
-    _controller.dispose();
+    _controller?.dispose();
     super.dispose();
   }
 
