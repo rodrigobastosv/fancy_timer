@@ -1,3 +1,7 @@
+# 1.0.2
+
+- Fixing multiple disposes error
+
 # 1.0.1+2
 
 - Adding documentation to the methods
