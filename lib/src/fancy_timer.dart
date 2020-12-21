@@ -98,8 +98,9 @@ class _FancyTimerState extends State<FancyTimer>
       if (leftDuration.inSeconds == 0) {
         if (widget.onTimerEnd != null) {
           widget.onTimerEnd();
+          _controller?.dispose();
+          _controller = null;
         }
-        _controller?.dispose();
       }
     });
     _controller.reverse();
