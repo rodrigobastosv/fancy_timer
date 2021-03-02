@@ -6,8 +6,8 @@ import 'time_separator.dart';
 // Fancy widget that gives you an out of the box timer with configurable options
 class FancyTimer extends StatefulWidget {
   FancyTimer({
-    Key key,
-    @required this.duration,
+    Key? key,
+    required this.duration,
     this.timeSeparatorWidget,
     this.digitContainerDecoration,
     this.digitContainerHeight,
@@ -21,22 +21,22 @@ class FancyTimer extends StatefulWidget {
   final Duration duration;
 
   /// Widget that will separate hours, minutes and seconds
-  final Widget timeSeparatorWidget;
+  final Widget? timeSeparatorWidget;
 
   /// Decoration of the container of the widget
-  final BoxDecoration digitContainerDecoration;
+  final BoxDecoration? digitContainerDecoration;
 
   /// Height of the container of the widget
-  final double digitContainerHeight;
+  final double? digitContainerHeight;
 
   /// Width of the container of the widget
-  final double digitContainerWidth;
+  final double? digitContainerWidth;
 
   /// Style of the text of the widget
-  final TextStyle digitTextStyle;
+  final TextStyle? digitTextStyle;
 
   // Callback that will be executed when the timer ends
-  final VoidCallback onTimerEnd;
+  final VoidCallback? onTimerEnd;
 
   @override
   _FancyTimerState createState() => _FancyTimerState();
@@ -44,17 +44,17 @@ class FancyTimer extends StatefulWidget {
 
 class _FancyTimerState extends State<FancyTimer>
     with SingleTickerProviderStateMixin {
-  AnimationController _controller;
+  late AnimationController _controller;
 
-  int hours;
-  int minutes;
-  int seconds;
+  late int hours;
+  late int minutes;
+  late int seconds;
 
-  Widget timeSeparatorWidget;
-  BoxDecoration digitContainerDecoration;
-  double digitContainerHeight;
-  double digitContainerWidth;
-  TextStyle digitTextStyle;
+  late Widget timeSeparatorWidget;
+  late BoxDecoration digitContainerDecoration;
+  late double digitContainerHeight;
+  late double digitContainerWidth;
+  late TextStyle digitTextStyle;
 
   @override
   void initState() {
@@ -88,7 +88,7 @@ class _FancyTimerState extends State<FancyTimer>
     );
 
     _controller.addListener(() {
-      final leftDuration = _controller.duration * _controller.value;
+      final leftDuration = _controller.duration! * _controller.value;
       setState(() {
         hours = leftDuration.inHours;
         minutes = leftDuration.inMinutes % 60;
@@ -97,9 +97,8 @@ class _FancyTimerState extends State<FancyTimer>
 
       if (leftDuration.inSeconds == 0) {
         if (widget.onTimerEnd != null) {
-          widget.onTimerEnd();
-          _controller?.dispose();
-          _controller = null;
+          widget.onTimerEnd!();
+          _controller.dispose();
         }
       }
     });
@@ -108,7 +107,7 @@ class _FancyTimerState extends State<FancyTimer>
 
   @override
   void dispose() {
-    _controller?.dispose();
+    _controller.dispose();
     super.dispose();
   }
 
@@ -150,7 +149,7 @@ class _FancyTimerState extends State<FancyTimer>
   }
 
   String getFirstDigit(int number) =>
-      (number == null || number < 10) ? '0' : number.toString().characters.last;
+      number < 10 ? '0' : number.toString().characters.last;
 
   String getLastDigit(int number) => number.toString().characters.last;
 }
