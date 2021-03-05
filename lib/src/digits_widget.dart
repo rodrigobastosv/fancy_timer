@@ -5,20 +5,14 @@ import 'digit_widget.dart';
 /// Widget that represents the digits that will be shown
 class DigitsWidget extends StatelessWidget {
   const DigitsWidget({
-    Key key,
-    @required this.digitOne,
-    @required this.digitTwo,
-    @required this.digitContainerDecoration,
-    @required this.digitContainerHeight,
-    @required this.digitContainerWidth,
-    @required this.digitTextStyle,
-  })  : assert(digitOne != null),
-        assert(digitTwo != null),
-        assert(digitContainerDecoration != null),
-        assert(digitContainerHeight != null),
-        assert(digitContainerWidth != null),
-        assert(digitTextStyle != null),
-        super(key: key);
+    Key? key,
+    required this.digitOne,
+    required this.digitTwo,
+    required this.digitContainerDecoration,
+    required this.digitContainerHeight,
+    required this.digitContainerWidth,
+    required this.digitTextStyle,
+  }) : super(key: key);
 
   final String digitOne;
   final String digitTwo;

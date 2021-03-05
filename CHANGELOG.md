@@ -1,3 +1,6 @@
+# 2.0.0
+- Migrating to null safe
+
 # 1.0.2
 
 - Fixing multiple disposes error

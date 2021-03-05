@@ -1,11 +1,10 @@
 name: fancy_timer
 description: A customizable flutter widget that produces a fancy timer with multiple customizable options
-version: 1.0.2
+version: 2.0.0
 homepage: https://github.com/rodrigobastosv/fancy_timer
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=1.17.0"
+  sdk: '>=2.12.0-0 <3.0.0'
 
 dependencies:
   flutter:
